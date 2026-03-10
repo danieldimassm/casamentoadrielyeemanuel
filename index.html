@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adriely & Emanuel | 17.09.2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffffff;
+            --accent: #8e9e74;
+            --text-gold: #b39154;
+            --font-title: 'Playfair Display', serif;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: var(--font-main); color: #333; background: #fdfbf7; text-align: center; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        .photo-frame {
+            border: 8px solid #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        img {
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+        
+        img:hover {
+            opacity: 1;
+        }
+
+        /* --- NAVEGAÇÃO --- */
+        .nav-header { position: absolute; top: 0; width: 100%; padding: 25px; z-index: 10; display: flex; justify-content: center; gap: 30px; }
+        .nav-link { color: var(--primary); text-decoration: none; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; transition: 0.3s; }
+        .nav-link:hover { color: var(--text-gold); }
+
+        /* --- TOPO (HERO) CORRIGIDO --- */
+        .hero { 
+            height: 100vh; 
+            width: 100%; 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background-image: url('imagem/foto%20de%20logo.png');
+            background-repeat: no-repeat;
+            background-position: center 40%; /* Posição ajustada conforme sua preferência */
+            background-size: 130%; /* Zoom de 130% aplicado */
+            z-index: 1;
+        }
+        
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.35); 
+            z-index: 2; 
+        }
+        
+        .hero-content { 
+            position: relative; 
+            z-index: 3; 
+            color: var(--primary); 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px;
+        }
+
+        .hero-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            border-top: 2px solid rgba(255,255,255,0.8);
+            border-left: 2px solid rgba(255,255,255,0.8);
+        }
+
+        .hero-content::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            border-bottom: 2px solid rgba(255,255,255,0.8);
+            border-right: 2px solid rgba(255,255,255,0.8);
+        }
+
+        .hero-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .hero-logo-img {
+            height: 160px; 
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .hero-names {
+            font-family: var(--font-title);
+            color: var(--primary);
+            font-size: 3rem; 
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin: 0;
+            font-weight: 300;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-date {
+            letter-spacing: 6px; 
+            font-weight: 200; 
+            font-size: 1rem; 
+            margin-top: 15px;
+            color: var(--primary);
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 15px;
+            width: 100%;
+        }
+
+        .btn-rsvp-top { 
+            display: inline-block; 
+            margin-top: 30px; 
+            padding: 14px 40px; 
+            border: 1px solid var(--primary); 
+            color: var(--primary); 
+            text-decoration: none; 
+            border-radius: 0;
+            text-transform: uppercase; 
+            font-size: 0.7rem; 
+            letter-spacing: 3px; 
+            transition: 0.4s; 
+            background: transparent; 
+        }
+        .btn-rsvp-top:hover { background: var(--primary); color: #333; }
+
+        .countdown-section { padding: 100px 20px; background: #fff; }
+        .countdown-title { font-family: var(--font-title); font-size: 1.8rem; color: var(--accent); margin-bottom: 30px; font-weight: 300; font-style: italic; }
+        .countdown-container { display: flex; justify-content: center; gap: 15px; }
+        .time-box { border: 1px solid #f2f2f2; padding: 20px; border-radius: 12px; min-width: 90px; }
+        .time-box span { display: block; font-size: 2.2rem; font-weight: 300; color: var(--accent); }
+        .time-box label { font-size: 0.7rem; text-transform: uppercase; color: #aaa; letter-spacing: 1px; }
+
+        .prog-section { padding: 100px 20px; background: #f9f7f2; }
+        .prog-img-header { width: 90%; max-width: 650px; margin-bottom: 30px; } 
+        .prog-list { position: relative; max-width: 550px; margin: 50px auto; }
+        .prog-list::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 1px; border-left: 1px dashed var(--accent); z-index: 1; }
+        .prog-item { display: flex; align-items: center; gap: 30px; margin-bottom: 45px; position: relative; z-index: 2; }
+        .dot { width: 70px; height: 70px; background: white; border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 400; flex-shrink: 0; font-size: 0.85rem; }
+        .prog-text { font-size: 1.25rem; color: #444; font-weight: 300; text-align: left; }
+
+        .history-section { padding: 100px 20px; max-width: 850px; margin: 0 auto; }
+        .boat-logo { width: 220px; margin-bottom: 40px; opacity: 0.9; } 
+        .history-text { line-height: 2.2; color: #555; font-weight: 300; font-size: 1.1rem; text-align: justify; }
+        .verse { font-family: var(--font-title); font-style: italic; font-size: 1.4rem; color: var(--accent); margin-top: 40px; text-align: center; border-top: 1px solid #eee; padding-top: 30px; }
+
+        .carousel-wrapper { position: relative; margin-top: 60px; border-radius: 15px; overflow: hidden; padding: 10px; }
+        .carousel-track { display: flex; width: 700%; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slide { width: 100%; height: 550px; display: flex; justify-content: center; align-items: center; }
+        .slide img { max-width: 90%; max-height: 100%; object-fit: contain; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; font-size: 1.5rem; cursor: pointer; z-index: 5; width: 45px; height: 45px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .prev { left: 15px; } .next { right: 15px; }
+
+        .local-section { padding: 100px 20px; }
+        .local-img-header { width: 90%; max-width: 500px; margin-bottom: 30px; }
+        .map-frame { margin-top: 40px; border-radius: 15px; overflow: hidden; max-width: 1000px; margin-left: auto; margin-right: auto; height: 450px; border: 1px solid #eee; }
+        .btn-nav { display: inline-block; padding: 12px 25px; margin: 10px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; color: white; }
+
+        .gift-section { padding: 100px 20px; background: #fff; }
+        .gift-logo-header { width: 120px; margin-bottom: 20px; }
+        .gift-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; border: 1px solid #ddd; background: none; border-radius: 20px; cursor: pointer; font-size: 0.8rem; transition: 0.3s; }
+        .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .gift-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .gift-card { background: #fff; padding: 20px; border: 1px solid #f0f0f0; border-radius: 12px; }
+        .gift-name { font-weight: 400; font-size: 0.95rem; min-height: 45px; display: flex; align-items: center; justify-content: center; }
+        .gift-price { font-weight: 600; color: #333; margin: 10px 0; }
+        .btn-gift { background: #a6846b; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); }
+        .modal-content { background: #fff; margin: 5vh auto; padding: 40px; border-radius: 20px; width: 95%; max-width: 500px; text-align: left; position: relative; }
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 2rem; cursor: pointer; color: #bbb; }
+        .btn-submit { background: var(--accent); color: white; border: none; width: 100%; padding: 16px; border-radius: 10px; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-top: 15px; }
+
+        h2 { font-family: var(--font-title); font-weight: 300; color: var(--accent); font-size: 2.4rem; letter-spacing: 3px; margin-bottom: 10px; }
+        .rsvp-form { background: white; }
+        .form-group { margin-bottom: 25px; padding: 15px; border: 1px solid #eee; border-radius: 10px; }
+        .rsvp-form label { display: block; font-size: 0.9rem; margin-bottom: 12px; color: #44586e; font-weight: 500; }
+        .rsvp-form input[type="text"] { width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 8px; background: #fff; font-size: 0.9rem; }
+        .rsvp-form select { width: 100px; padding: 10px; border: 1px solid #e0e0e0; border-radius: 8px; background: #fff; cursor: pointer; }
+        .radio-container { display: flex; gap: 15px; }
+        .radio-btn { border: 1px solid #e0e0e0; padding: 12px 30px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-header">
+        <a href="#programacao" class="nav-link">Programação</a>
+        <a href="#historia" class="nav-link">História</a>
+        <a href="#local" class="nav-link">Local</a>
+        <a href="#presentes" class="nav-link">Presentes</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="imagem/ae.png" class="hero-logo-img" alt="AE Logo">
+                <h1 class="hero-names">Adriely & Emanuel</h1>
+            </div>
+            <p class="hero-date">17 DE SETEMBRO DE 2026</p>
+            <button onclick="openRSVP()" class="btn-rsvp-top">Confirmar Presença</button>
+        </div>
+    </div>
+
+    <section class="countdown-section">
+        <div class="countdown-title">Contagem regressiva para o nosso "Sim"!</div>
+        <div class="countdown-container">
+            <div class="time-box"><span id="days">00</span><label>Dias</label></div>
+            <div class="time-box"><span id="hours">00</span><label>Horas</label></div>
+            <div class="time-box"><span id="mins">00</span><label>Minutos</label></div>
+            <div class="time-box"><span id="secs">00</span><label>Segundos</label></div>
+        </div>
+    </section>
+
+    <section class="prog-section" id="programacao">
+        <img src="imagem/sessaodeprogramacao.png" class="prog-img-header photo-frame" alt="Programação">
+        <h2>Programação do Dia</h2>
+        <div class="prog-list">
+            <div class="prog-item"><div class="dot"> Reunião </div><div class="prog-text">Recepção dos convidados</div></div>
+            <div class="prog-item"><div class="dot"> Início </div><div class="prog-text">Início da cerimônia</div></div>
+            <div class="prog-item"><div class="dot"> Fotos </div><div class="prog-text">Cumprimentos e fotos</div></div>
+            <div class="prog-item"><div class="dot"> Festa </div><div class="prog-text">Festa</div></div>
+        </div>
+    </section>
+
+    <section class="history-section" id="historia">
+        <img src="imagem/barcologo.png" class="boat-logo">
+        <div class="history-text">
+            <p>Nossa história é uma prova do cuidado de Deus. Assim como na passagem em que Jesus caminha sobre o mar durante a tempestade, nós também atravessamos um tempo de águas agitadas. Houve momentos desafiadores, mas em todo o processo aprendemos a confiar ainda mais no Senhor.</p>
+            <p>Foi nesse caminho que entendemos que He estava conosco em cada detalhe, conduzindo nosso barco com amor e propósito. A tempestade passou, e hoje vivemos o cumprimento das promessas que He plantou em nossos corações.</p>
+            <p>Por isso escolhemos o símbolo do barco com a vela no mar para representar nossa união, um lembrete de que, independentemente das águas que enfrentarmos, nunca estaremos sozinhos.</p>
+            <p class="verse">“Quando você atravessar as águas, eu estarei com você.”<br>Isaías 43:2</p>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
+            <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
+            <div class="carousel-track" id="track">
+                <div class="slide"><img src="imagem/carrosel1.png" class="photo-frame"></div>
+                <div class="slide"><img src="imagem/carrosel2.png" class="photo-frame"></div>
+                <div class="slide"><img src="imagem/carrosel3.png" class="photo-frame"></div>
+                <div class="slide"><img src="imagem/carrosel4.png" class="photo-frame"></div>
+                <div class="slide"><img src="imagem/carrosel5.png" class="photo-frame"></div>
+                <div class="slide"><img src="imagem/carrosel6.png" class="photo-frame"></div>
+                <div class="slide"><img src="imagem/carrosel7.png" class="photo-frame"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="local-section" id="local">
+        <img src="imagem/localdosim.png" class="local-img-header photo-frame" alt="Local">
+        <h2>Local do Sim</h2>
+        <p style="font-weight: 300; color: #777;">CASA RAYOL</p>
+        <p style="font-size: 0.8rem; color: #999; margin-bottom: 20px;">Av. Coronel Teixeira, 9299 - Ponta Negra, Manaus - AM</p>
+        <div class="map-frame">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.111815598583!2d-60.0911441!3d-3.0718165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x926c11f0fe609d97%3A0x9274b1f46da1118d!2sCasa%20Rayol!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div style="margin-top: 25px;">
+            <a href="https://www.google.com/maps/place/Casa+Rayol/@-3.0718165,-60.0911441,17z/data=!4m6!3m5!1s0x926c11f8fd609d97:0x9274b1f4fda6188d!8m2!3d-3.0718165!4d-60.0911441!16s%2Fg%2F11g1pnd887?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-nav" style="background:#4285F4;">Abrir no Google Maps</a>
+            <a href="https://ul.waze.com/ul?place=ChIJl51g_fgRbJIRjRim_fSxdJI&ll=-3.07181650%2C-60.09114410&navigate=yes" target="_blank" class="btn-nav" style="background:#33CCFF;">Abrir no Waze</a>
+        </div>
+    </section>
+
+    <section class="gift-section" id="presentes">
+        <img src="imagem/adriely%20e%20emanuel%20logo.png" class="gift-logo-header" alt="Logo">
+        <h2>Lista de Presentes</h2>
+        <div class="gift-tabs" id="tabContainer">
+            <button class="tab-btn active" onclick="filterGifts('cozinha', event)">Cozinha</button>
+            <button class="tab-btn" onclick="filterGifts('quarto', event)">Quarto</button>
+            <button class="tab-btn" onclick="filterGifts('banheiro', event)">Banheiro</button>
+            <button class="tab-btn" onclick="filterGifts('sala', event)">Sala</button>
+            <button class="tab-btn" onclick="filterGifts('lua-de-mel', event)">Lua de Mel</button>
+        </div>
+        <div class="gift-grid" id="giftGrid"></div>
+    </section>
+
+    <footer style="padding: 50px 20px; background: #fdfbf7;">
+        <img src="imagem/adriely%20e%20emanuel%20logo.png" style="width: 80px; margin-bottom: 20px;" alt="Logo Final">
+        <p style="font-size: 0.8rem; color: #aaa;">Com carinho, Adriely & Emanuel</p>
+    </footer>
+
+    <div id="rsvpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeRSVP()">×</span>
+            <div style="font-family: var(--font-title); font-size: 1.8rem; color: var(--accent); margin-bottom: 25px; text-align: center;">Confirmar Presença</div>
+            <form action="https://api.sheetmonkey.io/form/puF1UQqbviCcN4mYdKWmoF" method="post" class="rsvp-form">
+                <div class="form-group">
+                    <label>Nome completo</label>
+                    <input type="text" name="Nome" placeholder="Insira seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label>Você irá ao evento?</label>
+                    <div class="radio-container">
+                        <label class="radio-btn"><input type="radio" name="IraAoEvento" value="sim" checked> sim</label>
+                        <label class="radio-btn"><input type="radio" name="IraAoEvento" value="não"> não</label>
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label style="margin-bottom:0;">Adultos (incluindo você)</label>
+                    <select name="QtdAdultos">
+                        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                    </select>
+                </div>
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label style="margin-bottom:0;">Quantidade de crianças</label>
+                    <select name="QtdCrianças">
+                        <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Confirmação</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="pixModal" class="modal">
+        <div class="modal-content" style="text-align:center;">
+            <span class="close-modal" onclick="closePix()">×</span>
+            <h3 id="pixTitle" style="color:var(--accent);">Presentear</h3>
+            <p id="pixText"></p>
+            <div style="background:#f9f9f9; padding:15px; border-radius:10px; border:1px dashed #ccc; margin:20px 0; word-break:break-all; font-size:0.9rem;" id="pixKey">
+                065.602.902-12
+            </div>
+            <button class="btn-submit" onclick="copyPix()">Copiar Chave PIX</button>
+        </div>
+    </div>
+
+    <script>
+        const giftData = {
+            'cozinha': [
+                {n: 'Jogo de panelas', p: 550}, {n: 'Batedeira', p: 300}, {n: 'Porta temperos', p: 90}, {n: 'Jogo de talheres', p: 180},
+                {n: 'Mixer', p: 180}, {n: 'Jogo de pratos', p: 220}, {n: 'Taças de água', p: 120}, {n: 'Liquidificador', p: 250},
+                {n: 'Air fryer', p: 350}, {n: 'Cafeteira', p: 180}, {n: 'Sanduicheira', p: 120}, {n: 'Micro-ondas', p: 750},
+                {n: 'Geladeira', p: 3000}, {n: 'Fogão', p: 1500}, {n: 'Forma de bolo', p: 70}, {n: 'Assadeiras', p: 120},
+                {n: 'Tábua de corte', p: 60}, {n: 'Conjunto de facas', p: 150}, {n: 'Escorredor de louças', p: 80}, {n: 'Panela de pressão', p: 180}
+            ],
+            'quarto': [
+                {n: 'Jogo de lençol queen', p: 250}, {n: 'Edredom', p: 300}, {n: 'Travesseiros', p: 120}, {n: 'Cobre-leito', p: 350},
+                {n: 'Cortinas', p: 200}, {n: 'Guarda-roupa', p: 2500}, {n: 'Espelho grande', p: 350}, {n: 'Ferro de passar', p: 180}
+            ],
+            'banheiro': [
+                {n: 'Jogo de toalhas', p: 180}, {n: 'Tapetes de banheiro', p: 90}
+            ],
+            'sala': [
+                {n: 'Sofá', p: 1500}, {n: 'Rack', p: 600}, {n: 'Televisão', p: 2500}, {n: 'Mesa de centro', p: 350},
+                {n: 'Tapete', p: 300}, {n: 'Almofadas decorativas', p: 120}
+            ],
+            'lua-de-mel': [
+                {n: 'Cota jantar romântico', p: 250}, {n: 'Cota diária em hotel', p: 600}, {n: 'Cota café da manhã', p: 150},
+                {n: 'Cota passeio especial', p: 200}, {n: 'Cota passeio turístico', p: 300}, {n: 'Cota transporte', p: 100}
+            ]
+        };
+
+        function filterGifts(cat, e) {
+            const grid = document.getElementById('giftGrid');
+            if(!grid) return;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if(e) e.target.classList.add('active');
+            grid.innerHTML = giftData[cat].map(i => `<div class="gift-card"><div class="gift-name">${i.n}</div><div class="gift-price">R$ ${i.p},00</div><button class="btn-gift" onclick="openPix('${i.n}', ${i.p})">Presentear</button></div>`).join('');
+        }
+
+        function openRSVP() { document.getElementById("rsvpModal").style.display = "block"; }
+        function closeRSVP() { document.getElementById("rsvpModal").style.display = "none"; }
+        function openPix(n, p) { 
+            document.getElementById('pixTitle').innerText = n; 
+            document.getElementById('pixText').innerText = `Valor: R$ ${p},00`; 
+            document.getElementById('pixModal').style.display = 'block'; 
+        }
+        function closePix() { document.getElementById('pixModal').style.display = 'none'; }
+        function copyPix() {
+            const key = document.getElementById('pixKey').innerText;
+            navigator.clipboard.writeText(key.trim()).then(() => alert('Chave PIX copiada!'));
+        }
+
+        const countdownDate = new Date("Sep 17, 2026 17:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = countdownDate - now;
+            document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById("mins").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById("secs").innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+        }, 1000);
+
+        let curSlide = 0;
+        function moveSlide(s) { curSlide = (curSlide + s + 7) % 7; document.getElementById('track').style.transform = `translateX(-${curSlide * (100/7)}%)`; }
+
+        filterGifts('cozinha');
+    </script>
+</body>
+</html>
