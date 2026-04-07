@@ -32,48 +32,48 @@
         img:hover {
             opacity: 1;
         }
-
+        
         /* --- NAVEGAÇÃO --- */
         .nav-header { position: absolute; top: 0; width: 100%; padding: 25px; z-index: 10; display: flex; justify-content: center; gap: 30px; }
         .nav-link { color: var(--primary); text-decoration: none; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; transition: 0.3s; }
         .nav-link:hover { color: var(--text-gold); }
 
-        /* --- TOPO (HERO) CORRIGIDO --- */
-        .hero { 
-            height: 100vh; 
-            width: 100%; 
-            position: relative; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+        /* --- TOPO (HERO) --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
         
         .hero-bg {
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
             background-image: url('imagem/foto%20de%20logo.png');
             background-repeat: no-repeat;
-            background-position: center 40%; /* Posição ajustada conforme sua preferência */
-            background-size: 130%; /* Zoom de 130% aplicado */
+            background-position: center 40%;
+            background-size: cover;
             z-index: 1;
         }
         
-        .hero::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.35); 
-            z-index: 2; 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.35);
+            z-index: 2;
         }
         
-        .hero-content { 
-            position: relative; 
-            z-index: 3; 
-            color: var(--primary); 
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: var(--primary);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -111,7 +111,7 @@
         }
 
         .hero-logo-img {
-            height: 160px; 
+            height: 160px;
             width: auto;
             object-fit: contain;
             filter: brightness(0) invert(1);
@@ -122,7 +122,7 @@
         .hero-names {
             font-family: var(--font-title);
             color: var(--primary);
-            font-size: 3rem; 
+            font-size: 3rem;
             text-transform: uppercase;
             letter-spacing: 8px;
             margin: 0;
@@ -131,9 +131,9 @@
         }
 
         .hero-date {
-            letter-spacing: 6px; 
-            font-weight: 200; 
-            font-size: 1rem; 
+            letter-spacing: 6px;
+            font-weight: 200;
+            font-size: 1rem;
             margin-top: 15px;
             color: var(--primary);
             border-top: 1px solid rgba(255,255,255,0.3);
@@ -141,19 +141,20 @@
             width: 100%;
         }
 
-        .btn-rsvp-top { 
-            display: inline-block; 
-            margin-top: 30px; 
-            padding: 14px 40px; 
-            border: 1px solid var(--primary); 
-            color: var(--primary); 
-            text-decoration: none; 
+        .btn-rsvp-top {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 40px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
             border-radius: 0;
-            text-transform: uppercase; 
-            font-size: 0.7rem; 
-            letter-spacing: 3px; 
-            transition: 0.4s; 
-            background: transparent; 
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            transition: 0.4s;
+            background: transparent;
+            cursor: pointer;
         }
         .btn-rsvp-top:hover { background: var(--primary); color: #333; }
 
@@ -165,7 +166,7 @@
         .time-box label { font-size: 0.7rem; text-transform: uppercase; color: #aaa; letter-spacing: 1px; }
 
         .prog-section { padding: 100px 20px; background: #f9f7f2; }
-        .prog-img-header { width: 90%; max-width: 650px; margin-bottom: 30px; } 
+        .prog-img-header { width: 90%; max-width: 650px; margin-bottom: 30px; }
         .prog-list { position: relative; max-width: 550px; margin: 50px auto; }
         .prog-list::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 1px; border-left: 1px dashed var(--accent); z-index: 1; }
         .prog-item { display: flex; align-items: center; gap: 30px; margin-bottom: 45px; position: relative; z-index: 2; }
@@ -173,13 +174,13 @@
         .prog-text { font-size: 1.25rem; color: #444; font-weight: 300; text-align: left; }
 
         .history-section { padding: 100px 20px; max-width: 850px; margin: 0 auto; }
-        .boat-logo { width: 220px; margin-bottom: 40px; opacity: 0.9; } 
+        .boat-logo { width: 220px; margin-bottom: 40px; opacity: 0.9; }
         .history-text { line-height: 2.2; color: #555; font-weight: 300; font-size: 1.1rem; text-align: justify; }
         .verse { font-family: var(--font-title); font-style: italic; font-size: 1.4rem; color: var(--accent); margin-top: 40px; text-align: center; border-top: 1px solid #eee; padding-top: 30px; }
 
         .carousel-wrapper { position: relative; margin-top: 60px; border-radius: 15px; overflow: hidden; padding: 10px; }
-        .carousel-track { display: flex; width: 700%; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .slide { width: 100%; height: 550px; display: flex; justify-content: center; align-items: center; }
+        .carousel-track { display: flex; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slide { min-width: 100%; height: 550px; display: flex; justify-content: center; align-items: center; }
         .slide img { max-width: 90%; max-height: 100%; object-fit: contain; }
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; font-size: 1.5rem; cursor: pointer; z-index: 5; width: 45px; height: 45px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .prev { left: 15px; } .next { right: 15px; }
@@ -189,17 +190,51 @@
         .map-frame { margin-top: 40px; border-radius: 15px; overflow: hidden; max-width: 1000px; margin-left: auto; margin-right: auto; height: 450px; border: 1px solid #eee; }
         .btn-nav { display: inline-block; padding: 12px 25px; margin: 10px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; color: white; }
 
+        /* --- LISTA DE PRESENTES --- */
         .gift-section { padding: 100px 20px; background: #fff; }
         .gift-logo-header { width: 120px; margin-bottom: 20px; }
         .gift-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .tab-btn { padding: 10px 20px; border: 1px solid #ddd; background: none; border-radius: 20px; cursor: pointer; font-size: 0.8rem; transition: 0.3s; }
         .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
         .gift-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
-        .gift-card { background: #fff; padding: 20px; border: 1px solid #f0f0f0; border-radius: 12px; }
+        
+        .gift-card {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .gift-card.reserved {
+            filter: grayscale(1);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .gift-card.reserved::after {
+            content: "JÁ PRESENTEADO";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            width: 120%;
+            text-align: center;
+            z-index: 10;
+        }
+
         .gift-name { font-weight: 400; font-size: 0.95rem; min-height: 45px; display: flex; align-items: center; justify-content: center; }
         .gift-price { font-weight: 600; color: #333; margin: 10px 0; }
         .btn-gift { background: #a6846b; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
 
+        /* MODAIS */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); }
         .modal-content { background: #fff; margin: 5vh auto; padding: 40px; border-radius: 20px; width: 95%; max-width: 500px; text-align: left; position: relative; }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 2rem; cursor: pointer; color: #bbb; }
@@ -261,7 +296,7 @@
         <img src="imagem/barcologo.png" class="boat-logo">
         <div class="history-text">
             <p>Nossa história é uma prova do cuidado de Deus. Assim como na passagem em que Jesus caminha sobre o mar durante a tempestade, nós também atravessamos um tempo de águas agitadas. Houve momentos desafiadores, mas em todo o processo aprendemos a confiar ainda mais no Senhor.</p>
-            <p>Foi nesse caminho que entendemos que ELE estava conosco em cada detalhe, conduzindo nosso barco com amor e propósito. A tempestade passou, e hoje vivemos o cumprimento das promessas que ELE plantou em nossos corações.</p>
+            <p>Foi nesse caminho que entendemos que Ele estava conosco em cada detalhe, conduzindo nosso barco com amor e propósito. A tempestade passou, e hoje vivemos o cumprimento das promessas que Ele plantou em nossos corações.</p>
             <p>Por isso escolhemos o símbolo do barco com a vela no mar para representar nossa união, um lembrete de que, independentemente das águas que enfrentarmos, nunca estaremos sozinhos.</p>
             <p class="verse">“Quando você atravessar as águas, eu estarei com você.”<br>Isaías 43:2</p>
         </div>
@@ -287,10 +322,10 @@
         <p style="font-weight: 300; color: #777;">CASA RAYOL</p>
         <p style="font-size: 0.8rem; color: #999; margin-bottom: 20px;">Av. Coronel Teixeira, 9299 - Ponta Negra, Manaus - AM</p>
         <div class="map-frame">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.111815598583!2d-60.0911441!3d-3.0718165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x926c11f0fe609d97%3A0x9274b1f46da1118d!2sCasa%20Rayol!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.136453181822!2d-60.0911441!3d-3.0718165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x926c11f8fe609d97%3A0x9274b1f4c6a6228d!2sCasa%20Rayol!5e0!3m2!1spt-BR!2sbr!4v1710000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div style="margin-top: 25px;">
-            <a href="https://www.google.com/maps/place/Casa+Rayol/@-3.0718165,-60.0911441,17z/data=!4m6!3m5!1s0x926c11f8fd609d97:0x9274b1f4fda6188d!8m2!3d-3.0718165!4d-60.0911441!16s%2Fg%2F11g1pnd887?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-nav" style="background:#4285F4;">Abrir no Google Maps</a>
+            <a href="https://www.google.com/maps/place/Casa+Rayol/@-3.0718165,-60.0911441,17z/data=!4m6!3m5!1s0x926c11f8fd609d97:0x9274b1f4fda6188d!8m2!3d-3.0718165!4d-60.0911441!16s%2Fg%2F11g1pnd887?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D7" target="_blank" class="btn-nav" style="background:#4285F4;">Abrir no Google Maps</a>
             <a href="https://ul.waze.com/ul?place=ChIJl51g_fgRbJIRjRim_fSxdJI&ll=-3.07181650%2C-60.09114410&navigate=yes" target="_blank" class="btn-nav" style="background:#33CCFF;">Abrir no Waze</a>
         </div>
     </section>
@@ -313,6 +348,7 @@
         <p style="font-size: 0.8rem; color: #aaa;">Com carinho, Adriely & Emanuel</p>
     </footer>
 
+    <!-- MODAL RSVP -->
     <div id="rsvpModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeRSVP()">×</span>
@@ -346,41 +382,86 @@
         </div>
     </div>
 
-    <div id="pixModal" class="modal">
-        <div class="modal-content" style="text-align:center;">
-            <span class="close-modal" onclick="closePix()">×</span>
-            <h3 id="pixTitle" style="color:var(--accent);">Presentear</h3>
-            <p id="pixText"></p>
-            <div style="background:#f9f9f9; padding:15px; border-radius:10px; border:1px dashed #ccc; margin:20px 0; word-break:break-all; font-size:0.9rem;" id="pixKey">
-                065.602.902-12
-            </div>
-            <button class="btn-submit" onclick="copyPix()">Copiar Chave PIX</button>
+    <!-- MODAL PIX -->
+<div id="pixModal" class="modal">
+    <div class="modal-content" style="text-align:center;">
+        <span class="close-modal" onclick="closePix()">×</span>
+        <h3 id="pixTitle" style="color:var(--accent); font-family: var(--font-title); font-size: 1.5rem;">Presentear</h3>
+        <p id="pixText" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 10px;"></p>
+        <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px; line-height: 1.4;">
+            Você pode optar por comprar diretamente pelo link da loja ou nos enviar o valor equivalente via PIX:
+        </p>
+        
+        <!-- Chave PIX -->
+        <div style="background:#f9f9f9; padding:15px; border-radius:10px; border:1px dashed var(--accent); margin:10px 0; word-break:break-all; font-size:1.1rem; color: var(--accent); font-weight: 600;" id="pixKey">
+            06560290212
         </div>
+
+        <!-- Botão Copiar -->
+        <button id="btnCopiarPix" class="btn-submit" onclick="copyPix()">Copiar Chave PIX</button>
+
+        <!-- Botão Loja Virtual -->
+        <a id="btnLojaVirtual" href="#" target="_blank" class="btn-submit" style="display:none; text-decoration:none; background:#232f3e; margin-top:10px; line-height: normal; display: flex; align-items: center; justify-content: center;">Comprar em Loja Virtual</a>
+        
+        <p style="font-size: 0.7rem; color: #999; margin-top: 15px;">Favorecido: Emanuel (ou Adriely)</p>
     </div>
+</div>
 
     <script>
+        // --- CONTROLE MANUAL DE RESERVADOS ---
+        const listaGlobalReservados = [];
+
         const giftData = {
             'cozinha': [
-                {n: 'Jogo de panelas', p: 550}, {n: 'Batedeira', p: 300}, {n: 'Porta temperos', p: 90}, {n: 'Jogo de talheres', p: 180},
-                {n: 'Mixer', p: 180}, {n: 'Jogo de pratos', p: 220}, {n: 'Taças de água', p: 120}, {n: 'Liquidificador', p: 250},
-                {n: 'Air fryer', p: 350}, {n: 'Cafeteira', p: 180}, {n: 'Sanduicheira', p: 120}, {n: 'Micro-ondas', p: 750},
-                {n: 'Geladeira', p: 3000}, {n: 'Fogão', p: 1500}, {n: 'Forma de bolo', p: 70}, {n: 'Assadeiras', p: 120},
-                {n: 'Tábua de corte', p: 60}, {n: 'Conjunto de facas', p: 150}, {n: 'Escorredor de louças', p: 80}, {n: 'Panela de pressão', p: 180}
+                {n: 'Jogo de panelas Antiaderente', p: 550, u: 'https://www.amazon.com.br/Panelas-Cer%C3%A2mica-Antiaderente-MAAT-Indu%C3%A7%C3%A3o/dp/B0GRQ9HXJT'},
+                {n: 'Batedeira Planetária Mondial', p: 300, u: 'https://www.amazon.com.br/Batedeira-Planet%C3%A1ria-Velocidades-Mondial-BP-01P-W/dp/B07WDCZWFW'},
+                {n: 'Porta temperos Giratório', p: 90, u: 'https://www.amazon.com.br/Temperos-Girat%C3%B3rio-Condimentos-Organizador-Cozinha/dp/B0FMYS9TX5'},
+                {n: 'Jogo de talheres Brinox', p: 180, u: 'https://www.amazon.com.br/Faqueiro-Lyon-Brinox-5101-118/dp/B01N7KR864'},
+                {n: 'Mixer Electrolux', p: 180, u: 'https://www.amazon.com.br/Electrolux-4011AHBR407-Mixer-EIB10/dp/B09B2M8N4T'},
+                {n: 'Jogo de pratos Bio Latte', p: 220, u: 'https://www.amazon.com.br/Conjunto-Pratos-Fundo-Bio-Latte/dp/B0BV3B31FR'},
+                {n: 'Taças de vidro Borda Dourada', p: 120, u: 'https://www.amazon.com.br/Vinho-Vidro-Borda-Dourada-Filete/dp/B0G5M18C94'},
+                {n: 'Liquidificador Philips Walita', p: 250, u: 'https://www.amazon.com.br/Liquidificador-S%C3%A9rie-RI2244-Philips-Walita/dp/B08TLH52PQ'},
+                {n: 'Air fryer Philips Walita', p: 450, u: 'https://www.amazon.com.br/Fritadeira-Airfryer-Walita-Tecnologia-RapidAir/dp/B0D98VXWXB'},
+                {n: 'Cafeteira Electrolux', p: 150, u: 'https://www.amazon.com.br/Cafeteira-Electrolux-permanente-capacidade-ECM12/dp/B0DBJFFC9Q'},
+                {n: 'Sanduicheira e Grill Britânia', p: 130, u: 'https://www.amazon.com.br/Britania-PGR21P-GRILL-BRIT%C3%82NIA-PGR21PI/dp/B0B7K8JCL6'},
+                {n: 'Formas de bolo Desmontável', p: 80, u: 'https://www.amazon.com.br/Assadeira-Antiaderente-Revestimento-Desmont%C3%A1vel-Profissional/dp/B0FMSC3CQD'},
+                {n: 'Jogo de Assadeiras Tramontina', p: 110, u: 'https://www.amazon.com.br/Assadeiras-Tramontina-Antiaderente-Starflon-Mocaccino/dp/B0FL817P5G'},
+                {n: 'Tábua de corte Bamboo', p: 70, u: 'https://www.amazon.com.br/Churrasco-espessura-Preparar-Superficie-Antibacteriana/dp/B0GPNSY6TF'},
+                {n: 'Conjunto de facas Tramontina', p: 90, u: 'https://www.amazon.com.br/Facas-Pe%C3%A7as-Tramontina-Plenus-Original/dp/B09D8CXTJF'},
+                {n: 'Escorredor de louças 2 Andares', p: 140, u: 'https://www.amazon.com.br/Escorredor-Lou%C3%A7a-Bandeja-Talheres-Andares/dp/B0GL39H13V'},
+                {n: 'Panela de pressão Vancouver', p: 200, u: 'https://www.amazon.com.br/Press%C3%A3o-Vancouver-Tramontina-20582720-Vermelha/dp/B076BBQS8B'},
+                {n: 'Micro-ondas Electrolux 31L', p: 750, u: 'https://www.amazon.com.br/Micro-Ondas-MI41S-Prata-220v-Electrolux/dp/B076XC1QX7'},
+                {n: 'Geladeira Consul Frost Free', p: 3200, u: 'https://www.amazon.com.br/Geladeira-Duplex-Consul-Freezer-Embaixo/dp/B0G6724M4Z'},
+                {n: 'Fogão 5 Bocas Consul', p: 1600, u: 'https://www.amazon.com.br/Fog%C3%A3o-Consul-trempe-fundido-BIVOLT/dp/B07FTNP6GV'}
             ],
             'quarto': [
-                {n: 'Jogo de lençol queen', p: 250}, {n: 'Edredom', p: 300}, {n: 'Travesseiros', p: 120}, {n: 'Cobre-leito', p: 350},
-                {n: 'Cortinas', p: 200}, {n: 'Guarda-roupa', p: 2500}, {n: 'Espelho grande', p: 350}, {n: 'Ferro de passar', p: 180}
+                {n: 'Jogo de lençol queen Percal', p: 220, u: 'https://www.amazon.com.br/Bordare-Premium-Bordado-Acetinado-Am%C3%AAndoa/dp/B0FNNCW2CY'},
+                {n: 'Edredom Camesa Pluma', p: 280, u: 'https://www.amazon.com.br/Edredom-Ecopluma-Toque-Pluma-Camesa/dp/B0D51K65DW'},
+                {n: 'Par de Travesseiros Camesa', p: 100, u: 'https://www.amazon.com.br/Travesseiro-Camesa-Panda-Ecoplum-50x70cm/dp/B0DX2FS5RN'},
+                {n: 'Cobre-leito Madri Queen', p: 190, u: 'https://www.amazon.com.br/COBRE-LEITO-QUEEN-MADRI-PERCAL/dp/B0C4G5LJBN'},
+                {n: 'Cortinas de Linho Flame', p: 250, u: 'https://www.amazon.com.br/Cortina-Linho-Flame-Abra%C3%A7adeira-Branco/dp/B0CBSXY9J3'},
+                {n: 'Ar Condicionado Samsung Inverter', p: 2800, u: 'https://www.amazon.com.br/Condicionado-Samsung-WindFree-Inverter-12-000/dp/B0DSLQP69S'},
+                {n: 'Espelho Adonai Caramelo', p: 350, u: 'https://www.amazon.com.br/Decorativo-Sofisticado-Recep%C3%A7%C3%A3o-Banheiro-Caramelo/dp/B0GMRSJ8SM'}
             ],
             'banheiro': [
-                {n: 'Jogo de toalhas', p: 180}, {n: 'Tapetes de banheiro', p: 90}
+                {n: 'Jogo de toalhas Buddemeyer', p: 180, u: 'https://www.amazon.com.br/Toalhas-Buddemeyer-Extra-Banho-pe%C3%A7as/dp/B0FLYP44G8'},
+                {n: 'Kit Tapetes Microfibra', p: 60, u: 'https://www.amazon.com.br/Tapetes-Banheiro-Microfibra-Macarr%C3%A3o-Bolinha/dp/B0FGHXL21K'}
             ],
             'sala': [
-                {n: 'Sofá', p: 1500}, {n: 'Rack', p: 600}, {n: 'Televisão', p: 2500}, {n: 'Mesa de centro', p: 350},
-                {n: 'Tapete', p: 300}, {n: 'Almofadas decorativas', p: 120}
+                {n: 'Sofá Retrátil Adonai', p: 1800, u: 'https://www.amazon.com.br/Retr%C3%A1til-Reclin%C3%A1vel-lugares-Adonai-Estofados/dp/B0CJS36CMJ'},
+                {n: 'Rack com Painel Multimóveis', p: 450, u: 'https://www.amazon.com.br/Estante-Painel-portas-Multim%C3%B3veis-Madeirado/dp/B09NW8JNB6'},
+                {n: 'Smart TV TCL 55"', p: 2400, u: 'https://www.amazon.com.br/TCL-Polegadas-Bluetooth-Google-55P7K/dp/B0F1GHSSXG'},
+                {n: 'Mesa de Jantar 4 Cadeiras', p: 900, u: 'https://www.amazon.com.br/Conjunto-Jantar-Madesa-Evelin-Cadeiras/dp/B0D2Y3FQF5'},
+                {n: 'Tapete Algodão Rústico', p: 200, u: 'https://www.amazon.com.br/Algod%C3%A3o-R%C3%BAstico-Artesanal-Antiderrapante-Caramelo/dp/B0CVY2SYMJ'},
+                {n: 'Kit 4 Almofadas Decorativas', p: 100, u: 'https://www.amazon.com.br/Almofadas-Decorativas-Geom%C3%A9trica-abstrato-Moderna/dp/B0BW183RBQ'}
             ],
             'lua-de-mel': [
-                {n: 'Cota jantar romântico', p: 250}, {n: 'Cota diária em hotel', p: 600}, {n: 'Cota café da manhã', p: 150},
-                {n: 'Cota passeio especial', p: 200}, {n: 'Cota passeio turístico', p: 300}, {n: 'Cota transporte', p: 100}
+                {n: 'Cota jantar romântico', p: 250, u: '#'},
+                {n: 'Cota diária em hotel', p: 600, u: '#'},
+                {n: 'Cota café da manhã', p: 150, u: '#'},
+                {n: 'Cota passeio especial', p: 200, u: '#'},
+                {n: 'Cota passeio turístico', p: 300, u: '#'},
+                {n: 'Cota transporte', p: 100, u: '#'}
             ]
         };
 
@@ -389,37 +470,78 @@
             if(!grid) return;
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             if(e) e.target.classList.add('active');
-            grid.innerHTML = giftData[cat].map(i => `<div class="gift-card"><div class="gift-name">${i.n}</div><div class="gift-price">R$ ${i.p},00</div><button class="btn-gift" onclick="openPix('${i.n}', ${i.p})">Presentear</button></div>`).join('');
+
+            grid.innerHTML = giftData[cat].map(i => {
+                const isReserved = listaGlobalReservados.includes(i.n);
+                return `
+                    <div class="gift-card ${isReserved ? 'reserved' : ''}">
+                        <div class="gift-name">${i.n}</div>
+                        <div class="gift-price">R$ ${i.p},00</div>
+                        <button class="btn-gift" onclick="handleGiftClick('${i.n}', ${i.p}, '${i.u}')">
+                            ${isReserved ? 'Já Presenteado' : 'Presentear'}
+                        </button>
+                    </div>
+                `;
+            }).join('');
         }
+
+function handleGiftClick(n, p, u) {
+    // Preenche os dados do PIX
+    document.getElementById('pixTitle').innerText = n;
+    document.getElementById('pixText').innerText = `Valor sugerido: R$ ${p},00`;
+    
+    // Mostra o modal
+    document.getElementById('pixModal').style.display = 'block';
+
+    // Configura o botão da Amazon/Loja
+    const btnLoja = document.getElementById('btnLojaVirtual');
+    if (u && u !== '#') {
+        btnLoja.href = u;
+        btnLoja.style.display = 'block';
+    } else {
+        btnLoja.style.display = 'none';
+    }
+}
 
         function openRSVP() { document.getElementById("rsvpModal").style.display = "block"; }
         function closeRSVP() { document.getElementById("rsvpModal").style.display = "none"; }
-        function openPix(n, p) { 
-            document.getElementById('pixTitle').innerText = n; 
-            document.getElementById('pixText').innerText = `Valor: R$ ${p},00`; 
-            document.getElementById('pixModal').style.display = 'block'; 
-        }
         function closePix() { document.getElementById('pixModal').style.display = 'none'; }
+        
         function copyPix() {
             const key = document.getElementById('pixKey').innerText;
-            navigator.clipboard.writeText(key.trim()).then(() => alert('Chave PIX copiada!'));
+            const cleanKey = key.replace(/\s/g, '').trim();
+            navigator.clipboard.writeText(cleanKey).then(() => {
+                const btn = document.querySelector('#pixModal .btn-submit');
+                const originalText = btn.innerText;
+                btn.innerText = "Copiado!";
+                btn.style.background = "#5cb85c";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "var(--accent)";
+                }, 2000);
+            });
         }
 
         const countdownDate = new Date("Sep 17, 2026 17:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const diff = countdownDate - now;
-            document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-            document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-            document.getElementById("mins").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-            document.getElementById("secs").innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+            if (diff > 0) {
+                document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById("mins").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById("secs").innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+            }
         }, 1000);
 
         let curSlide = 0;
-        function moveSlide(s) { curSlide = (curSlide + s + 7) % 7; document.getElementById('track').style.transform = `translateX(-${curSlide * (100/7)}%)`; }
+        const totalSlides = 7;
+        function moveSlide(s) {
+            curSlide = (curSlide + s + totalSlides) % totalSlides;
+            document.getElementById('track').style.transform = `translateX(-${curSlide * 100}%)`;
+        }
 
-        filterGifts('cozinha');
+        window.onload = () => filterGifts('cozinha');
     </script>
 </body>
-
 </html>
